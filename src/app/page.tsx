@@ -21,13 +21,64 @@ export default function Home() {
           </p>
         </div>
       </section>
-      {/* Main content placeholder */}
-      <main className="flex-1 flex flex-col items-center justify-center text-white text-center p-8">
-        <div className="bg-white/10 rounded-lg p-6 mt-4 w-full max-w-md shadow-lg">
-          <span className="block text-lg font-semibold mb-2">Today's Prayer Times</span>
-          <div className="text-sm opacity-80">(Coming soon)</div>
+      {/* Prayer Times Section (compact, always visible after hero) */}
+      <section className="w-full flex flex-col items-center justify-center py-12 bg-[#e3d7a3] fade-in">
+        <span className="block text-4xl font-extrabold mb-4 text-[#232323] fade-in">Today's Prayer Times</span>
+        <div className="text-2xl opacity-80 text-[#232323] fade-in">(Coming soon)</div>
+      </section>
+      {/* Exciting News Section (card) */}
+      <section className="w-full flex flex-col items-center justify-center py-20 bg-transparent fade-in">
+        <div className="w-full max-w-5xl mx-auto rounded-2xl border border-[#e3d7a3] shadow-2xl bg-[#353535] bg-opacity-95 p-12 flex flex-col items-center" style={{marginLeft: '2vw', marginRight: '2vw'}}>
+          <h2 className="text-5xl font-extrabold text-[#e3d7a3] mb-8">Exciting News</h2>
+          <div className="text-white/80 text-2xl">(Content coming soon)</div>
         </div>
-      </main>
+      </section>
+      {/* Events Section (card) */}
+      <section className="w-full flex flex-col items-center justify-center py-20 bg-transparent fade-in">
+        <div className="w-full max-w-5xl mx-auto rounded-2xl border border-[#e3d7a3] shadow-2xl bg-[#e3d7a3] bg-opacity-95 p-12 flex flex-col items-center" style={{marginLeft: '2vw', marginRight: '2vw'}}>
+          <h2 className="text-4xl font-bold text-[#232323] mb-8">Events</h2>
+          <div className="text-[#232323]/80 text-xl">(Content coming soon)</div>
+        </div>
+      </section>
+      {/* School Visits Section (card) */}
+      <section className="w-full flex flex-col items-center justify-center py-20 bg-transparent fade-in">
+        <div className="w-full max-w-5xl mx-auto rounded-2xl border border-[#353535] shadow-2xl bg-[#353535] bg-opacity-95 p-12 flex flex-col items-center" style={{marginLeft: '2vw', marginRight: '2vw'}}>
+          <h2 className="text-4xl font-bold text-[#e3d7a3] mb-8">School Visits</h2>
+          <div className="text-white/80 text-xl">(Content coming soon)</div>
+        </div>
+      </section>
+      {/* Donation Security Reassurance Section (card) */}
+      <section className="w-full flex flex-col items-center justify-center py-20 bg-transparent fade-in">
+        <div className="w-full max-w-5xl mx-auto rounded-2xl border border-[#e3d7a3] shadow-2xl bg-[#e3d7a3] bg-opacity-95 p-12 flex flex-col items-center" style={{marginLeft: '2vw', marginRight: '2vw'}}>
+          <h2 className="text-4xl font-bold text-[#232323] mb-8">Donation Security Reassurance</h2>
+          <div className="text-[#232323]/80 text-xl">(Content coming soon)</div>
+        </div>
+      </section>
+      {/* About Us & Location Section (card) */}
+      <section className="w-full flex flex-col items-center justify-center py-20 bg-transparent fade-in">
+        <div className="w-full max-w-5xl mx-auto rounded-2xl border border-[#353535] shadow-2xl bg-[#353535] bg-opacity-95 p-12 flex flex-col items-center" style={{marginLeft: '2vw', marginRight: '2vw'}}>
+          <h2 className="text-4xl font-bold text-[#e3d7a3] mb-8">About Us & Location</h2>
+          <div className="text-white/80 text-xl">(Content coming soon)</div>
+        </div>
+      </section>
+      {/* Volunteer With Us Section (card) */}
+      <section className="w-full flex flex-col items-center justify-center py-20 bg-transparent fade-in">
+        <div className="w-full max-w-5xl mx-auto rounded-2xl border border-[#e3d7a3] shadow-2xl bg-[#e3d7a3] bg-opacity-95 p-12 flex flex-col items-center" style={{marginLeft: '2vw', marginRight: '2vw'}}>
+          <h2 className="text-4xl font-bold text-[#232323] mb-8">Volunteer With Us</h2>
+          <div className="text-[#232323]/80 text-xl">(Content coming soon)</div>
+        </div>
+      </section>
+      {/* Footer Section */}
+      <footer className="w-full bg-[#1a1a1a] text-[#e3d7a3] py-12 flex flex-col items-center fade-in">
+        <div className="flex gap-8 mb-6">
+          {/* Social media icons placeholders */}
+          <span className="w-10 h-10 bg-[#353535] rounded-full flex items-center justify-center text-lg">FB</span>
+          <span className="w-10 h-10 bg-[#353535] rounded-full flex items-center justify-center text-lg">TW</span>
+          <span className="w-10 h-10 bg-[#353535] rounded-full flex items-center justify-center text-lg">IG</span>
+        </div>
+        <div className="text-lg opacity-80">&copy; {new Date().getFullYear()} Sutton Coldfield Masjid. All rights reserved.</div>
+        <div className="text-base opacity-60 mt-2">Registered Charity No. 12345678 | Designed with ❤️ for the community</div>
+      </footer>
     </>
   );
 }
