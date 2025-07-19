@@ -3,9 +3,32 @@
 import Image from "next/image";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import timetable from './prayer-times/july2025.json';
 
 export default function Home() {
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const [todayPrayerTimes, setTodayPrayerTimes] = useState<any>(null);
+
+  // Update current time every minute
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 60000); // Update every minute
+
+    return () => clearInterval(timer);
+  }, []);
+
+  // Get today's prayer times
+  useEffect(() => {
+    const today = new Date();
+    const todayStr = today
+      .toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
+    
+    const todayData = timetable.data.find((row: any) => row.date.readable === todayStr);
+    setTodayPrayerTimes(todayData);
+  }, []);
+
   // Keen-slider setup for carousel
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
@@ -80,7 +103,43 @@ export default function Home() {
       {/* Prayer Times Section (compact, always visible after hero) */}
       <section className="w-full flex flex-col items-center justify-center py-12 bg-[#e3d7a3] fade-in">
         <span className="block text-4xl font-extrabold mb-4 text-[#232323] fade-in">Today's Prayer Times</span>
-        <div className="text-2xl opacity-80 text-[#232323] fade-in">(Coming soon)</div>
+        <div className="text-lg text-[#232323] mb-2 fade-in">
+          {currentTime.toLocaleTimeString('en-GB', { 
+            hour: '2-digit', 
+            minute: '2-digit',
+            hour12: false 
+          })} - Current Time
+        </div>
+        {todayPrayerTimes ? (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 text-center fade-in">
+            <div className="bg-white rounded-lg p-4 shadow-md">
+              <div className="text-sm text-gray-600 mb-1">Fajr</div>
+              <div className="text-2xl font-bold text-[#232323]">{todayPrayerTimes.timings.Fajr.split(' ')[0]}</div>
+            </div>
+            <div className="bg-white rounded-lg p-4 shadow-md">
+              <div className="text-sm text-gray-600 mb-1">Dhuhr</div>
+              <div className="text-2xl font-bold text-[#232323]">{todayPrayerTimes.timings.Dhuhr.split(' ')[0]}</div>
+            </div>
+            <div className="bg-white rounded-lg p-4 shadow-md">
+              <div className="text-sm text-gray-600 mb-1">Asr</div>
+              <div className="text-2xl font-bold text-[#232323]">{todayPrayerTimes.timings.Asr.split(' ')[0]}</div>
+            </div>
+            <div className="bg-white rounded-lg p-4 shadow-md">
+              <div className="text-sm text-gray-600 mb-1">Maghrib</div>
+              <div className="text-2xl font-bold text-[#232323]">{todayPrayerTimes.timings.Maghrib.split(' ')[0]}</div>
+            </div>
+            <div className="bg-white rounded-lg p-4 shadow-md">
+              <div className="text-sm text-gray-600 mb-1">Isha</div>
+              <div className="text-2xl font-bold text-[#232323]">{todayPrayerTimes.timings.Isha.split(' ')[0]}</div>
+            </div>
+            <div className="bg-white rounded-lg p-4 shadow-md">
+              <div className="text-sm text-gray-600 mb-1">Sunrise</div>
+              <div className="text-2xl font-bold text-[#232323]">{todayPrayerTimes.timings.Sunrise.split(' ')[0]}</div>
+            </div>
+          </div>
+        ) : (
+          <div className="text-2xl opacity-80 text-[#232323] fade-in">Loading prayer times...</div>
+        )}
       </section>
       {/* Exciting News Section (card with carousel) */}
       <section className="w-full flex flex-col items-center justify-center py-20 bg-transparent fade-in">
