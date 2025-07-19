@@ -117,6 +117,10 @@ export default function Home() {
               <div className="text-2xl font-bold text-[#232323]">{todayPrayerTimes.timings.Fajr.split(' ')[0]}</div>
             </div>
             <div className="bg-white rounded-lg p-4 shadow-md">
+              <div className="text-sm text-gray-600 mb-1">Sunrise</div>
+              <div className="text-2xl font-bold text-[#232323]">{todayPrayerTimes.timings.Sunrise.split(' ')[0]}</div>
+            </div>
+            <div className="bg-white rounded-lg p-4 shadow-md">
               <div className="text-sm text-gray-600 mb-1">Dhuhr</div>
               <div className="text-2xl font-bold text-[#232323]">{todayPrayerTimes.timings.Dhuhr.split(' ')[0]}</div>
             </div>
@@ -131,10 +135,6 @@ export default function Home() {
             <div className="bg-white rounded-lg p-4 shadow-md">
               <div className="text-sm text-gray-600 mb-1">Isha</div>
               <div className="text-2xl font-bold text-[#232323]">{todayPrayerTimes.timings.Isha.split(' ')[0]}</div>
-            </div>
-            <div className="bg-white rounded-lg p-4 shadow-md">
-              <div className="text-sm text-gray-600 mb-1">Sunrise</div>
-              <div className="text-2xl font-bold text-[#232323]">{todayPrayerTimes.timings.Sunrise.split(' ')[0]}</div>
             </div>
           </div>
         ) : (
